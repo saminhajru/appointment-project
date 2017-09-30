@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.com">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Insert title here</title>
+
+<link th:href="@{bootstrap/css/bootstrap.min.css}" rel="stylesheet"
+	type="text/css" />
+<link th:href="@{css/markupForAppointmentForm.css}" rel="stylesheet"
+	type="text/css" />
+<script type="text/javascript" th:src="@{bootstrap/js/bootstrap.min.js}">
+	
+</script>
+
+</head>
+<body>
+
+
+	<div class="container">
+
+		<div id="header"></div>
+
+		<h2>Create New Appointment</h2>
+
+		<div class="col-md-offset-2 col-md-10">
+
+			<form class="form-horizontal">
+
+
+				<div class="form-group">
+					<label for="date" class="col-md-2 control-label"> Date: </label>
+					<div class="col-md-3">
+						<input class="form-control" type="date" id="date" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="fromTime"> Time:
+					</label>
+					<div class="col-md-2">
+						<input class="form-control" type="time" id="fromTime" />
+					</div>
+					<label class="col-md-1 control-label" for="toTime"> to </label>
+					<div class="col-md-2">
+						<input class="form-control" type="time" id="toTIme" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="patientName">
+						Patient name: </label>
+					<div class="col-md-3">
+						<input class="form-control" type="text" id="patientName" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="email"> Email: </label>
+					<div class="col-md-3">
+						<input class="form-control" type="email" id="email" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="organisation">
+						Organization: </label>
+					<div class="col-md-3">
+						<select class="form-control" id="organisation">
+							<option> ORG 1 </option>
+							<option> ORG 2 </option>
+							<option> ORG 3 </option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="notes/comments">
+						Notes/Comments: </label>
+					<div class="col-md-7">
+						<textarea class="form-control" id="notes/comments" rows="2">
+    </textarea>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="remindsme">
+						Reminds me: </label>
+					<div class="col-md-3">
+						<select class="form-control" id="remindsme">
+
+							<option> 10 minutes before </option>
+							<option> 20 minutes before</option>
+							<option> 1 hour before </option>
+
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+
+
+
+					<button class="col-md-2 btn btn-default"
+						id="buttonForAttachingFiles">Attach File</button>
+
+					<button class="col-md-offset-1 col-md-1 btn btn-default"
+						id="buttonForCancel">Cancel</button>
+
+					<button class="col-md-offset-1 col-md-2 btn btn-primary"
+						id="buttonForCreating">Create</button>
+
+
+				</div>
+
+
+
+
+
+
+
+			</form>
+
+		</div>
+
+	</div>
+
+</body>
+</html>

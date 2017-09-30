@@ -1,0 +1,26 @@
+@charset "ISO-8859-1";
+
+#buttonForAttachingFiles {
+	border: 1px #42f4e5 solid;
+	border-radius: 25px;
+	background-color: white;
+	color: #42f4e5;
+
+}
+
+#buttonForCancel {
+	border: 1px solid;
+	border-radius: 25px;
+}
+
+#buttonForCreating {
+	border: 1px solid;
+	border-radius: 25px;
+}
+
+#header {
+	height: 20px;
+	background-color: #f4a742;
+	border: 2px #f4a742 solid;
+	border-radius: 5px;
+}

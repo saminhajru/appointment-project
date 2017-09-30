@@ -1,0 +1,39 @@
+@charset "ISO-8859-1";
+
+.currentHour {
+	width: 40px;
+	height: 40px;
+}
+
+.activeDay {
+	background-color: red;
+	text-color: red;
+}
+
+.currentHour {
+	text-align: center;
+	vertical-align: top;
+	border: 1px #d8c5c5 solid;
+
+}
+
+.dateHead {
+	border: 1px #d8c5c5 solid;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #efeaea;
+}
+
+.tableTdStyle {
+	border: 1px #d8c5c5 solid;
+	height: 50px;
+	width: 13.7%;
+}
+
+.pattern {
+	min-height:200px;
+}
+
+#stripes12 {
+background-image: repeating-linear-gradient(165deg, #ccc, #ccc 1px, #dbdbdb 10px, #dbdbdb 1px);
+}
