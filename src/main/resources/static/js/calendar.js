@@ -1,9 +1,10 @@
 $(document).ready(function() {
 
 	var today = new Date().getDay();
-
+	var todayDate = new Date();
+	
 	function createCalendar() {
-		var weekDays = getDaysInCurrentWeek();
+		var weekDays = getDaysInCurrentWeek(todayDate);
 
 		tableHead(weekDays);
 
@@ -41,7 +42,6 @@ $(document).ready(function() {
 		}
 	}
 	createCalendar();
-});
 
 function isWeekendDay(day) {
 	return day == 0 || day == 6;
@@ -68,7 +68,15 @@ function tableHead(weekDays) {
 		});
 
 		$($dateHead).append($td);
-		$($td).html("<p> " + days[day] + " " + $($td).attr("date") + "</p>");
+		$($td).html("<div> " + days[day] + " " + "<span class='circleNumber'>" + $($td).attr("date") + "</span>" + "</div>");
 		$($td).addClass("dateHead");
+		
+		if (isCurrentDay(weekDays[day].getDay(), today)) {
+			$($td).addClass("activeDay");
+		}
+
+		
 	}
 }
+
+});
