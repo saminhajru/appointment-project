@@ -8,32 +8,62 @@
 	type="text/css" />
 <link th:href="@{css/markupTherapiePlan.css}" rel="stylesheet"
 	type="text/css" />
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
 <script type="text/javascript" th:src="@{js/jquery-3.2.1.min.js}">
+	
 </script>
 <script type="text/javascript" th:src="@{bootstrap/js/bootstrap.min.js}">
+	
 </script>
 <script type="text/javascript" th:src="@{js/calendarUtil.js}">
+	
 </script>
 <script type="text/javascript" th:src="@{js/calendar.js}">
+	
 </script>
 
 </head>
 <body>
 
+	<div class="container">
+		<div class="row">
+			<div class='tableHead'>
+				<div class='col-xs-2 monthAndYear'>
+					<span class='name' id="monthInYear"></span> <span class='number'
+						id="year"></span>
+				</div>
 
-<div class="container"> 
-	<div class="row">
-	<table id="appointmentTable" class="col-md-10 table table-responsive tableCalendar">
-	
-	
-	
-	
-	
-	</table>
-</div>
+				<div class='col-xs-4 col-xs-offset-2 forSelecting'>
+					<button class='btnForSelectingWeek' id="btnForPreviousWeek">
+						<i class="fa fa-angle-left" aria-hidden="true"></i>
+					</button>
+					<span class='name week'> Week </span> <span class='number week'
+						id="weekInMonth"> </span>
+					<button class='btnForSelectingWeek ' id="btnForNextWeek">
+						<i class="fa fa-angle-right" aria-hidden="true"></i>
+					</button>
+				</div>
 
-</div>
-		
+				<div class='col-xs-3 col-xs-offset-1 todayWeekBtn'>
+					<button class='col-xs-offset-4 col-xs-4 btn todayBtn'>
+						Today</button>
+					<button class='col-xs-4 btn weekBtn'>
+						<i class="fa fa-bars hamburger" aria-hidden="true"></i>Week
+					</button>
+				</div>
+
+			</div>
+
+			<table id="appointmentTable"
+				class="col-md-10 table table-responsive tableCalendar">
+			</table>
+		</div>
+
+	</div>
+
 
 
 </body>

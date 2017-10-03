@@ -21,5 +21,9 @@ public class AppointmentController {
 	public String therapiePlanPage() {
 		return "therapiePlan";
 	}
+	@RequestMapping(value = "/tableHead", method = RequestMethod.GET)
+	public String tableHeadPage() {
+		return "tableHead";
+	}
 
 }

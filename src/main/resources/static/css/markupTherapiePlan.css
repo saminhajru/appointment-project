@@ -1,27 +1,24 @@
 @charset "ISO-8859-1";
 
-.currentHour {
-	width: 40px;
-	height: 40px;
-}
-
 .activeDay {
-	background-color: red;
+	background-color: #FFF0EB;
 	color: red;
 }
 
 .currentHour {
+	width: 40px;
+	height: 40px;
 	text-align: center;
 	vertical-align: top;
 	border: 1px #d8c5c5 solid;
 
 }
 
-.dateHead {
+.dateTimeHead {
 	border: 1px #d8c5c5 solid;
 	text-align: center;
 	vertical-align: middle;
-	background-color: #efeaea;
+	background-color: #F8F9FB;
 	height: 20px;
 	overflow: auto;
 }
@@ -41,6 +38,59 @@
    	align-items : center;
     font: 15px Arial, sans-serif;
     padding: 3px;
+}
+
+.tableHead {
+	height: 50px;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px  #d8c5c5 solid;
+	border-bottom : none;
+	display : flex;
+ 	align-items : center;
+	
+}
+
+.name {
+	font-weight: bold;
+	font-size: 20px;
+	vertical-align: middle;
+}
+
+.number {
+	font-size: 20px;
+	vertical-align: middle;
+}
+
+
+.todayBtn {
+	background-color: white;
+	border: 1px #d8c5c5 solid;
+
+}
+
+.weekBtn {
+	background-color:  #F8F9FB;
+	border: 1px #d8c5c5 solid;
+	
+}
+
+.btnForSelectingWeek {
+	background-color: white;
+	color: blue;
+	border: none;
+	font-size: 25px;
+	vertical-align: middle;
+}
+
+.hamburger {
+	color: red;
+	padding-right: 5px;
+}
+
+.week {
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .pattern {

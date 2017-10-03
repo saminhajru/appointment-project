@@ -31,7 +31,7 @@ function getDaysInNextWeek(date) {
 function getDaysInPreviousWeek(date) {
 
 	var firstDayInCurrentWeek = getDaysInCurrentWeek(date)[0];
-	lastDayInNextWeek.setDate(lastDayInNextWeek.getDate() - 7);
+	firstDayInCurrentWeek.setDate(firstDayInCurrentWeek.getDate() - 7);
 	var firstDayInPreviousWeek = new Date(firstDayInCurrentWeek);
 
 	return getDaysInCurrentWeek(firstDayInPreviousWeek);
