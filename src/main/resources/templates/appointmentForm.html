@@ -2,19 +2,38 @@
 <html xmlns:th="www.thymeleaf.com">
 <head>
 <meta charset="ISO-8859-1" />
+<!-- <meta th:content="${_csrf.token}" id="token_csrf" /> -->
 <title>Insert title here</title>
 
 <link th:href="@{bootstrap/css/bootstrap.min.css}" rel="stylesheet"
 	type="text/css" />
 <link th:href="@{css/markupForAppointmentForm.css}" rel="stylesheet"
 	type="text/css" />
+<link th:href="@{css/jquery-ui.min.css}" rel="stylesheet"
+	type="text/css" />
+	
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
+	
+<script type="text/javascript" th:src="@{js/jquery-3.2.1.min.js}">
+	
+</script>
 <script type="text/javascript" th:src="@{bootstrap/js/bootstrap.min.js}">
 	
 </script>
+<script type="text/javascript" th:src="@{js/appointment.js}">
+	
+</script>
+
+<script type="text/javascript" th:src="@{js/jquery-ui.min.js}">
+	
+</script>
+
 
 </head>
 <body>
-
 
 	<div class="container">
 
@@ -24,25 +43,26 @@
 
 		<div class="col-md-offset-2 col-md-10">
 
-			<form class="form-horizontal">
+			<form class="form-horizontal" id="appointmentForm">
 
-
-				<div class="form-group">
-					<label for="date" class="col-md-2 control-label"> Date: </label>
-					<div class="col-md-3">
-						<input class="form-control" type="date" id="date" />
+				<div class="form-group date" id="datePicker">
+					<label class=" col-md-2 control-label" for="date"> Date: </label>
+					<div class="input-group col-md-offset-1 col-md-3">
+						<input type="text" class="form-control dateForm" id="date" /> <span
+							class="input-group-addon"> <i class="fa fa-calendar"></i>
+						</span>
 					</div>
 				</div>
 
-				<div class="form-group">
+				<div class="form-group clockpicker">
 					<label class="col-md-2 control-label" for="fromTime"> Time:
 					</label>
-					<div class="col-md-2">
-						<input class="form-control" type="time" id="fromTime" />
+					<div class="col-md-2 clockpicker">
+						<input class="form-control" type="text" id="fromTime" />
 					</div>
 					<label class="col-md-1 control-label" for="toTime"> to </label>
 					<div class="col-md-2">
-						<input class="form-control" type="time" id="toTIme" />
+						<input class="form-control" type="text" id="toTime" />
 					</div>
 				</div>
 
@@ -62,6 +82,13 @@
 				</div>
 
 				<div class="form-group">
+					<label class="col-md-2 control-label" for="phone"> Phone: </label>
+					<div class="col-md-3">
+						<input class="form-control" type="text" id="phone" />
+					</div>
+				</div>
+
+				<div class="form-group">
 					<label class="col-md-2 control-label" for="organisation">
 						Organization: </label>
 					<div class="col-md-3">
@@ -74,10 +101,10 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-md-2 control-label" for="notes/comments">
+					<label class="col-md-2 control-label" for="notesComments">
 						Notes/Comments: </label>
 					<div class="col-md-7">
-						<textarea class="form-control" id="notes/comments" rows="2">
+						<textarea class="form-control" id="notesComments" rows="2">
     </textarea>
 					</div>
 				</div>

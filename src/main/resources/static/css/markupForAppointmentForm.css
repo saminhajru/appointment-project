@@ -24,3 +24,13 @@
 	border: 2px #f4a742 solid;
 	border-radius: 5px;
 }
+
+.input-group-addon {
+  	border: 1px solid #eee;
+  	border-left: none;
+    background-color: white;
+}
+
+.dateForm {
+	border-right: none;
+}
