@@ -53,12 +53,12 @@
 
 .name {
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 150%;
 	vertical-align: middle;
 }
 
 .number {
-	font-size: 20px;
+	font-size: 150%;
 	vertical-align: middle;
 }
 
@@ -79,7 +79,7 @@
 	background-color: white;
 	color: blue;
 	border: none;
-	font-size: 25px;
+	font-size: 150%;
 	vertical-align: middle;
 }
 
@@ -103,4 +103,30 @@
 
 #stripes12 {
 background-image: repeating-linear-gradient(165deg, #ccc, #ccc 1px, #dbdbdb 10px, #dbdbdb 1px);
+}
+
+.displayingAppointmentForActiveDay {
+
+	height : 93%;
+	width : 95%;
+	background-color: #FFBCA4;
+	text-align: left;
+	vertical-align: middle;
+
+}
+
+.displayingAppointmentForNotActiveDay {
+
+	height : 93%;
+	width : 95%;
+	background-color: #D6E6F4;
+	text-align: left;
+	vertical-align: middle;
+
+}
+
+.displayingAppointmentForNotActiveDay p {
+	padding-left: 5px;
+	font-size: 100%;
+	overflow: auto;
 }

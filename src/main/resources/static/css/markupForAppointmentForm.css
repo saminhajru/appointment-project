@@ -26,11 +26,15 @@
 }
 
 .input-group-addon {
-  	border: 1px solid #eee;
+  	border: 1px solid #CFD6D7;
   	border-left: none;
     background-color: white;
 }
 
 .dateForm {
 	border-right: none;
+}
+
+.toLabel {
+	padding-left: -20px;
 }

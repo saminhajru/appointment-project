@@ -1,13 +1,25 @@
-package project;
+package project.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name = "appointment")
 public class Appointment {
 
+	@Temporal(TemporalType.DATE)
 	private Date date;
-	private String timeFrom;
-	private String timeTo;
+	@Temporal(TemporalType.TIME)
+	private Date timeFrom;
+	@Temporal(TemporalType.TIME)
+	private Date timeTo;
 	private String patientName;
+	@Id
 	private String email;
 	private String phone;
 	private String organization;
@@ -17,8 +29,8 @@ public class Appointment {
 	public Appointment() {
 	}
 
-	public Appointment(Date date,String timeFrom, String timeTo, String patientName, String email, String phone, String organization, String comments,
-			String remindMe) {
+	public Appointment(Date date, Date timeFrom, Date timeTo, String patientName, String email, String phone,
+			String organization, String comments, String remindMe) {
 		super();
 		this.date = date;
 		this.timeFrom = timeFrom;
@@ -39,19 +51,19 @@ public class Appointment {
 		this.date = date;
 	}
 
-	public String getTimeFrom() {
+	public Date getTimeFrom() {
 		return timeFrom;
 	}
 
-	public void setTimeFrom(String timeFrom) {
+	public void setTimeFrom(Date timeFrom) {
 		this.timeFrom = timeFrom;
 	}
 
-	public String getTimeTo() {
+	public Date getTimeTo() {
 		return timeTo;
 	}
 
-	public void setTimeTo(String timeTo) {
+	public void setTimeTo(Date timeTo) {
 		this.timeTo = timeTo;
 	}
 

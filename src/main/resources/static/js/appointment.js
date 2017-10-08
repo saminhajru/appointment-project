@@ -7,7 +7,7 @@ $(document).ready(function() {
 //			xhr.setRequestHeader("X-CSRF-TOKEN", token);
 //		}
 //	});
-	
+		
 	$("#buttonForCreating").click(function(event) {
 		event.preventDefault();
 		
@@ -20,7 +20,7 @@ $(document).ready(function() {
 		var organisation = $("#organisation").val();
 		var notesComments = $("#notesComments").val();
 		var remindsme = $("#remindsme").val();
-			
+		
 		$.ajax({
 			url: '/appoinmentData',
 			type: "POST",
@@ -28,7 +28,7 @@ $(document).ready(function() {
 				"patientName" : patientName, "email" : email, "phone" : phone, "organisation" : organisation, 
 				"notesComments" : notesComments, "remindsme" : remindsme}),
 			contentType: 'application/json',
-			succes: function() {
+			success: function() {
 				alert("succes")
 			} ,
 			error: function() {
@@ -41,4 +41,28 @@ $(document).ready(function() {
 	
 	
 	 $('#date').datepicker();
+	 $('.selectpicker').selectpicker({
+	        style: 'btn-default',
+	        size: false
+	    });
+	 
+	 $('#fromTime').clockpicker({
+		    placement: 'bottom',
+		    align: 'left',
+		    donetext: 'Done'
+		});
+	 
+	 
+	 $('#toTime').clockpicker({
+		    placement: 'bottom',
+		    align: 'left',
+		    donetext: 'Done'
+		});
+	 
+
+	$(".bs-caret span").removeClass("caret");
+	$(".bs-caret span").addClass("glyphicon glyphicon-menu-down");
+
+	$('.selectpicker').selectpicker();
+	 
 });

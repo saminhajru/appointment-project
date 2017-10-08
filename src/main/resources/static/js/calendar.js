@@ -8,6 +8,56 @@ $(document).ready(function() {
 	
 	var today = new Date().getDay();
 	var todayDate = new Date();
+	var firstDayInWeek = firstDayInWeek(todayDate);
+	var lastDayInWeek = lastDayInWeek(todayDate);
+	
+
+	
+function getRangeDate(firstDayInWeek, lastDayInWeek) {
+	
+$.ajax({
+	url : "/therapiePlanDateRange",
+	type : "POST",
+	contentType : "application/json",
+	data : JSON.stringify({"fromDate" : firstDayInWeek, "toDate" : lastDayInWeek}), 
+	success : function(data) {
+		
+		for(var i = 0; i < data.length; i++) {
+			var date = data[i].date;
+			var dayDate = new Date(date).getDay();
+			var dateCorrectFormat = new Date(date).toLocaleDateString();
+			var time = data[i].timeFrom;
+			var appointmentDate = new Date(dateCorrectFormat + " " + time);
+			var appointmentDateWithRoundMinutes = roundMinutes(appointmentDate);
+			
+			var getCurretHourFromDate = appointmentDateWithRoundMinutes.getHours();
+			var dateHours = appointmentDate.toLocaleString('en-US', { hour: 'numeric', hour12: true });
+			
+			var currentTD = "td[hour='" + getCurretHourFromDate + "'][date='" + dateCorrectFormat + "']";
+			
+			
+		$(currentTD)
+			.html("<div class='btn center-block displayingAppointmentForNotActiveDay'><span>" + dateHours + "</span><br/><span>" + dateCorrectFormat + "</span></div>");
+		
+		if (isWeekendDay(dayDate)) {
+			$("#displayingAppointment").empty();
+		} else if (isCurrentDay(dayDate, today)) {
+			$($td).addClass("activeDay");
+			$($td).attr("id", "activeDay");
+			$("#displayingAppointment").removeClass("displayingAppointmentForNotActiveDay");
+			$("#displayingAppointment").addClass("displayingAppointmentForActiveDay");
+		}
+		}
+	
+	},
+	error : function() {
+		alert("errorere");
+	}
+	
+});
+}
+	
+getRangeDate(firstDayInWeek, lastDayInWeek);
 	
 function createCalendar(weekDays) {
 				
@@ -15,7 +65,7 @@ function createCalendar(weekDays) {
 		tableTimeHead(weekDays);
 
 		for (var hour = 8; hour < 17; hour++) {
-
+			
 			var $tr = $("<tr>", {
 				"hour" : hour
 			});
@@ -31,7 +81,7 @@ function createCalendar(weekDays) {
 			for (var day = 0; day < weekDays.length; day++) {
 				var $td = $("<td>", {
 					"hour" : hour,
-					"date" : weekDays[day]
+					"date" : weekDays[day].toLocaleDateString()
 				});
 				$($td).addClass("tableTdStyle");
 				
@@ -56,6 +106,16 @@ function isWeekendDay(day) {
 
 function isCurrentDay(day, today) {
 	return day == today;
+}
+
+function firstDayInWeek(today) {
+	var weekDays = getDaysInCurrentWeek(today);
+	return weekDays[0].toLocaleDateString();
+}
+
+function lastDayInWeek(today) {
+	var weekDays = getDaysInCurrentWeek(today);
+	return weekDays[6].toLocaleDateString();
 }
 
 function tableTimeHead(weekDays) {
@@ -114,6 +174,7 @@ $("#btnForPreviousWeek").click(function() {
 	createCalendar(weekDays);
 	
 	addOrRemoveClass(weekDays);
+	getRangeDate(firstDayInWeek, lastDayInWeek);
 	
 });
 
@@ -124,6 +185,7 @@ $("#btnForNextWeek").click(function() {
 	createCalendar(weekDays);
 	
 	addOrRemoveClass(weekDays);
+	
 	
 });
 
@@ -142,6 +204,14 @@ function addOrRemoveClass(weekDays) {
 			break;
 		}
 	}
+}
+
+function roundMinutes(date) {
+
+    date.setHours(date.getHours() + Math.round(date.getMinutes()/60));
+    date.setMinutes(0);
+
+    return date;
 }
 
 });

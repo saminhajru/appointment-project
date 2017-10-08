@@ -5,18 +5,18 @@
 <!-- <meta th:content="${_csrf.token}" id="token_csrf" /> -->
 <title>Insert title here</title>
 
+<link th:href="@{css/bootstrap-select.min.css}" rel="stylesheet"
+	type="text/css" />
 <link th:href="@{bootstrap/css/bootstrap.min.css}" rel="stylesheet"
 	type="text/css" />
 <link th:href="@{css/markupForAppointmentForm.css}" rel="stylesheet"
 	type="text/css" />
 <link th:href="@{css/jquery-ui.min.css}" rel="stylesheet"
 	type="text/css" />
-	
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link th:href="@{css/bootstrap-clockpicker.min.css}" rel="stylesheet" type="text/css" />
 
-
-	
 <script type="text/javascript" th:src="@{js/jquery-3.2.1.min.js}">
 	
 </script>
@@ -30,7 +30,16 @@
 <script type="text/javascript" th:src="@{js/jquery-ui.min.js}">
 	
 </script>
+<script type="text/javascript" th:src="@{js/clockface.js}">
+	
+</script>
 
+<script type="text/javascript" th:src="@{js/bootstrap-clockpicker.js}">
+	
+</script>
+<script type="text/javascript" th:src="@{js/bootstrap-select.min.js}">
+	
+</script>
 
 </head>
 <body>
@@ -44,25 +53,31 @@
 		<div class="col-md-offset-2 col-md-10">
 
 			<form class="form-horizontal" id="appointmentForm">
+			
+			
 
-				<div class="form-group date" id="datePicker">
-					<label class=" col-md-2 control-label" for="date"> Date: </label>
-					<div class="input-group col-md-offset-1 col-md-3">
-						<input type="text" class="form-control dateForm" id="date" /> <span
-							class="input-group-addon"> <i class="fa fa-calendar"></i>
-						</span>
-					</div>
-				</div>
 
-				<div class="form-group clockpicker">
-					<label class="col-md-2 control-label" for="fromTime"> Time:
-					</label>
-					<div class="col-md-2 clockpicker">
-						<input class="form-control" type="text" id="fromTime" />
+					<div class="form-group has-feedback">
+						<label class="col-md-2 control-label" for="date"> Date: </label>
+						<div class="col-md-3">
+							<input type="text" class="form-control" id="date" />	
+							<i class="fa fa-calendar form-control-feedback"></i>
+						</div>
 					</div>
-					<label class="col-md-1 control-label" for="toTime"> to </label>
+
+
+
+				<div class="form-group has-feedback">
+					<label class="col-md-2 control-label" for="fromTime"> Time: </label>
 					<div class="col-md-2">
-						<input class="form-control" type="text" id="toTime" />
+						<input class="form-control clockpicker " type="text" id="fromTime" />
+						<i class="glyphicon glyphicon-menu-down form-control-feedback"></i>
+					</div>
+					<label class="control-label col-md-1 toLabel" for="toTime"> To:
+					</label>
+					<div class="col-md-2">
+						<input class="form-control clockpicker" type="text" id="toTime" />
+						<i class="glyphicon glyphicon-menu-down form-control-feedback"></i>
 					</div>
 				</div>
 
@@ -92,7 +107,7 @@
 					<label class="col-md-2 control-label" for="organisation">
 						Organization: </label>
 					<div class="col-md-3">
-						<select class="form-control" id="organisation">
+						<select class="form-control selectpicker" id="organisation">
 							<option> ORG 1 </option>
 							<option> ORG 2 </option>
 							<option> ORG 3 </option>
@@ -103,30 +118,26 @@
 				<div class="form-group">
 					<label class="col-md-2 control-label" for="notesComments">
 						Notes/Comments: </label>
-					<div class="col-md-7">
+					<div class="col-md-6">
 						<textarea class="form-control" id="notesComments" rows="2">
     </textarea>
 					</div>
 				</div>
-
+			
 				<div class="form-group">
 					<label class="col-md-2 control-label" for="remindsme">
 						Reminds me: </label>
 					<div class="col-md-3">
-						<select class="form-control" id="remindsme">
-
+						<select class="form-control selectpicker" id="remindsme">
 							<option> 10 minutes before </option>
 							<option> 20 minutes before</option>
 							<option> 1 hour before </option>
-
 						</select>
-					</div>
+					</div>				
 				</div>
 
 				<div class="form-group">
-
-
-
+				
 					<button class="col-md-2 btn btn-default"
 						id="buttonForAttachingFiles">Attach File</button>
 
@@ -136,13 +147,7 @@
 					<button class="col-md-offset-1 col-md-2 btn btn-primary"
 						id="buttonForCreating">Create</button>
 
-
 				</div>
-
-
-
-
-
 
 
 			</form>
