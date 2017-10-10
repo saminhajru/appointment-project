@@ -9,6 +9,9 @@
 <link th:href="@{css/markupTherapiePlan.css}" rel="stylesheet"
 	type="text/css" />
 
+<link th:href="@{css/sidebar.css}" rel="stylesheet"
+	type="text/css" />
+
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
@@ -25,44 +28,62 @@
 	
 </script>
 
+<script type="text/javascript" th:src="@{js/sidebar.js}">
+	
+</script>
+
 </head>
 <body>
 
+
+
+
+	<div th:include="sidebar" class="col-md-2"  id="sidebarInclude" >  </div>
+	
+	
 	<div class="container">
-		<div class="row">
+		
+		<div class="col-md-10" id="contentTable">
+		
+		<div th:include="therapiePlanHeader">  </div>
+		
+	
 			<div class='tableHead'>
+		
 				<div class='col-md-2 monthAndYear'>
 					<span class='name' id="monthInYear"></span> <span class='number'
 						id="year"></span>
 				</div>
 
 				<div class='col-md-4 col-md-offset-2 forSelecting'>
-					<label class='btnForSelectingWeek btn' id="btnForPreviousWeek">
+					<label class='btnForSelectingWeek btn col-md-4' id="btnForPreviousWeek">
 						<i class="fa fa-angle-left" aria-hidden="true"></i>
 					</label>
-					<span class='name week'> Week </span> <span class='number week'
-						id="weekInMonth"> </span>
-					<label class='btnForSelectingWeek btn' id="btnForNextWeek">
+					<span class='name week col-md-2'> Week </span> 
+					<span class='number week col-md-2' id="weekInMonth"> </span>
+					<label class='btnForSelectingWeek btn col-md-4' id="btnForNextWeek">
 						<i class="fa fa-angle-right" aria-hidden="true"></i>
 					</label>
 				</div>
 
 				<div class='col-md-3 col-md-offset-1 todayWeekBtn'>
-					<label class='col-md-offset-4 col-md-4 btn todayBtn'>
-						Today
-					</label>
-					<label class='col-md-4 btn weekBtn' >
-						<i class="fa fa-bars hamburger" aria-hidden="true"></i>Week
-					</label>
+					<button class='col-md-6 btn todayBtn btn-responsive' value="today"> Today
+					</button>
+					
+					<button class='col-md-6 btn weekBtn btn-responsive'>
+						<i class="fa fa-bars hamburger" aria-hidden="true"></i> Week
+					</button>
 				</div>
-
+				
 			</div>
+			
+		
 
 			<table id="appointmentTable"
 				class="col-md-10 table table-responsive tableCalendar">
 			</table>
 		</div>
-
+	
 	</div>
 
 

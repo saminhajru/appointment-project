@@ -38,3 +38,12 @@
 .toLabel {
 	padding-left: -20px;
 }
+
+.exitBtn {
+	background-color: white;
+}
+
+.formHead {
+	padding-top: 15px;
+	padding-bottom: 25px;
+}

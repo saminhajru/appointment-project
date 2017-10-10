@@ -8,23 +8,24 @@ $(document).ready(function() {
 	
 	var today = new Date().getDay();
 	var todayDate = new Date();
-	var firstDayInWeek = firstDayInWeek(todayDate);
-	var lastDayInWeek = lastDayInWeek(todayDate);
+	var fromDate = firstDayInWeek(todayDate);
+	var toDate = lastDayInWeek(todayDate);
 	
 
 	
-function getRangeDate(firstDayInWeek, lastDayInWeek) {
+function getRangeDate(fromDate, toDate) {
 	
 $.ajax({
 	url : "/therapiePlanDateRange",
 	type : "POST",
 	contentType : "application/json",
-	data : JSON.stringify({"fromDate" : firstDayInWeek, "toDate" : lastDayInWeek}), 
+	data : JSON.stringify({"fromDate" : fromDate, "toDate" : toDate}), 
 	success : function(data) {
 		
 		for(var i = 0; i < data.length; i++) {
 			var date = data[i].date;
 			var dayDate = new Date(date).getDay();
+			var datDateFormat = new Date(date);
 			var dateCorrectFormat = new Date(date).toLocaleDateString();
 			var time = data[i].timeFrom;
 			var appointmentDate = new Date(dateCorrectFormat + " " + time);
@@ -35,15 +36,15 @@ $.ajax({
 			
 			var currentTD = "td[hour='" + getCurretHourFromDate + "'][date='" + dateCorrectFormat + "']";
 			
-			
+			// This is dummy text because there is no appointment type on the form
+			var dummyText = "Appointment";
+				
 		$(currentTD)
-			.html("<div class='btn center-block displayingAppointmentForNotActiveDay'><span>" + dateHours + "</span><br/><span>" + dateCorrectFormat + "</span></div>");
+			.html("<div class='btn center-block displayingAppointmentForNotActiveDay' id='displayingAppointment'><span>" + dateHours + "</span><br/><span>" + dummyText + "</span></div>");
 		
 		if (isWeekendDay(dayDate)) {
 			$("#displayingAppointment").empty();
-		} else if (isCurrentDay(dayDate, today)) {
-			$($td).addClass("activeDay");
-			$($td).attr("id", "activeDay");
+		} else if (isCurrentDate(datDateFormat)) {
 			$("#displayingAppointment").removeClass("displayingAppointmentForNotActiveDay");
 			$("#displayingAppointment").addClass("displayingAppointmentForActiveDay");
 		}
@@ -57,7 +58,7 @@ $.ajax({
 });
 }
 	
-getRangeDate(firstDayInWeek, lastDayInWeek);
+getRangeDate(fromDate, toDate);
 	
 function createCalendar(weekDays) {
 				
@@ -106,6 +107,16 @@ function isWeekendDay(day) {
 
 function isCurrentDay(day, today) {
 	return day == today;
+}
+
+function isCurrentDate(dayDate) {
+	var today = new Date();
+	today.setHours(0,0,0,0);
+	
+	dayDate.setHours(0,0,0,0);
+	
+	return today - dayDate === 0;
+
 }
 
 function firstDayInWeek(today) {
@@ -174,7 +185,11 @@ $("#btnForPreviousWeek").click(function() {
 	createCalendar(weekDays);
 	
 	addOrRemoveClass(weekDays);
-	getRangeDate(firstDayInWeek, lastDayInWeek);
+	
+	fromDate = firstDayInWeek(todayDate);
+	toDate = lastDayInWeek(todayDate);
+	
+	getRangeDate(fromDate, toDate);
 	
 });
 
@@ -185,6 +200,11 @@ $("#btnForNextWeek").click(function() {
 	createCalendar(weekDays);
 	
 	addOrRemoveClass(weekDays);
+	
+	fromDate = firstDayInWeek(todayDate);
+	toDate = lastDayInWeek(todayDate);
+	
+	getRangeDate(fromDate, toDate);
 	
 	
 });

@@ -1,0 +1,106 @@
+@charset "ISO-8859-1";
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+.col-md-2 {
+	padding-left : 0px;
+}
+.col-md-1 {
+	padding-left: 0px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 100vh;
+    background: #2F3848;
+    color: #D6E6F4;
+    transition: all 0.3s;
+   
+}
+
+#sidebar ul li a i {
+    margin-right: 10px;
+}
+
+a, a:hover, a:focus {
+    color: #F7F8FA;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul li a {
+    padding: 15px;
+    font-size: 1.1em;
+    display: block;
+    text-align: left;
+    color: #F7F8FA;
+}
+
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar.active {
+    min-width: 100px;
+    max-width: 100px;
+    text-align: center;
+    transition: all 0.4s;
+    z-index: 99999;
+}
+
+
+#sidebar.active ul li a {
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 0.7em;
+}
+
+#sidebar.active ul li a i {
+    margin-right:  0;
+    display: block;
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+#content {
+	background-color: #272F3C;
+	height: 50px;
+	text-align: left;
+	vertical-align: middle;
+}
+
+#sidebarCollapse {
+	color: #F7F8FA;
+	margin-top: 4%;
+	font-size: 20px;
+}
+#sidebarCollapse:hover {
+	color: #7386D5;
+    background: #fff;
+}
+
+#content span {
+	font-size: 20px;
+	vertical-align: middle;
+}
+
+#sidebar ul li.active > a {
+   color : #D6E6F4;
+   
+}

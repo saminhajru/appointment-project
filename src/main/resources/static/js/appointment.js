@@ -29,7 +29,8 @@ $(document).ready(function() {
 				"notesComments" : notesComments, "remindsme" : remindsme}),
 			contentType: 'application/json',
 			success: function() {
-				alert("succes")
+				 window.location.href = '/therapiePlan';
+				 return false;
 			} ,
 			error: function() {
 				alert("error")
@@ -38,9 +39,14 @@ $(document).ready(function() {
 		});
 		
 	});
-	
+		
+	$("#exitBtn").click(function() {
+	    window.location.href = '/therapiePlan';
+	    return false;
+	});
 	
 	 $('#date').datepicker();
+	 
 	 $('.selectpicker').selectpicker({
 	        style: 'btn-default',
 	        size: false
