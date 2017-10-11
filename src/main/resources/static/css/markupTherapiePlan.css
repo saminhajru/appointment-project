@@ -1,5 +1,9 @@
 @charset "ISO-8859-1";
 
+table { 
+	background-color: white;
+}
+
 .activeDay {
 	background-color: #FFF0EB;
 	color: red;
@@ -142,19 +146,24 @@ background-image: repeating-linear-gradient(165deg, #ccc, #ccc 1px, #dbdbdb 10px
 	vertical-align: middle;
 	display : flex;
  	align-items : center;
+ 	background-color: white;
 
+}
+
+.headName {
+	font-size: 20px;
+	margin-top : 2%;
 }
 
 .pictureHeader {
 	width: 30%;
 	height: 30%;
- 	margin-top : 7%;
+ 	margin-top : 3%;
 
 }
 
 .headerUsername {
-	font-size: 15px;
-	margin-top: 10%;
+	margin-top: 7%;
 }
 
 

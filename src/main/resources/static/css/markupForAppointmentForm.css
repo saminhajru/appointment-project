@@ -1,6 +1,6 @@
 @charset "ISO-8859-1";
 
-#buttonForAttachingFiles {
+.buttonForAttachingFiles {
 	border: 1px #42f4e5 solid;
 	border-radius: 25px;
 	background-color: white;
@@ -8,21 +8,22 @@
 
 }
 
-#buttonForCancel {
+.buttonForCancel {
 	border: 1px solid;
 	border-radius: 25px;
 }
 
-#buttonForCreating {
+.buttonForCreating {
 	border: 1px solid;
 	border-radius: 25px;
 }
 
-#header {
+.header {
 	height: 20px;
 	background-color: #f4a742;
 	border: 2px #f4a742 solid;
-	border-radius: 5px;
+	border-top-left-radius:2em; 
+	border-top-right-radius:2em;
 }
 
 .input-group-addon {
@@ -46,4 +47,24 @@
 .formHead {
 	padding-top: 15px;
 	padding-bottom: 25px;
+}
+
+.fa-calendar {
+	margin-top : 3%; 
+}
+
+.remindsme {
+	margin-top: 5%;
+}
+
+.buttons {
+	margin-top: 5%;
+}
+
+.buttonForCancel {
+	margin-right: 2%;
+}
+
+textarea {
+   resize: none;
 }

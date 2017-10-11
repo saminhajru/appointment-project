@@ -101,6 +101,9 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li.active > a {
-   color : #D6E6F4;
-   
+   color : #D6E6F4; 
+}
+
+#sidebar ul li.active > a:hover {
+   color : #FFBCA4; 
 }

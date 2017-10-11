@@ -45,7 +45,14 @@ $(document).ready(function() {
 	    return false;
 	});
 	
-	 $('#date').datepicker();
+
+	$('#date').datepicker({
+		beforeShow : function() {
+			setTimeout(function() {
+				$('.ui-datepicker').css('z-index', 99999999999999);
+			}, 0);
+		}
+	});
 	 
 	 $('.selectpicker').selectpicker({
 	        style: 'btn-default',
