@@ -38,12 +38,12 @@ $.ajax({
 			var dummyText = "Appointment";
 				
 			$(currentTD)
-				.html("<div class='btn center-block displayingAppointmentForNotActiveDay' id='displayingAppointment'><span>" + dateHours + "</span><br/><span>" + dummyText + "</span></div>");
-		
-			if (isWeekendDay(dayFromDate)) {
-				$("#displayingAppointment").empty();
+				.html("<div class='btn center-block displayingAppointmentForNotActiveDay'><span>" + dateHours + "</span><br/><span>" + dummyText + "</span></div>");
+			
+			if (dayFromDate === 0 || dayFromDate === 6) {
+				$(currentTD).empty();
 			} else if (isCurrentDate(fullDate)) {
-				$("#displayingAppointment")
+				$(currentTD +  " > div")
 					.removeClass("displayingAppointmentForNotActiveDay")
 					.addClass("displayingAppointmentForActiveDay");
 			}
