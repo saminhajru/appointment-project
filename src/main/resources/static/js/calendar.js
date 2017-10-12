@@ -3,15 +3,12 @@ Date.prototype.getMonthWeek = function(){
 	return Math.ceil((this.getDate() + firstDay)/7);
 }
 
-
 $(document).ready(function() {
 	
 	var today = new Date().getDay();
 	var todayDate = new Date();
 	var fromDate = firstDayInWeek(todayDate);
 	var toDate = lastDayInWeek(todayDate);
-	
-
 	
 function getRangeDate(fromDate, toDate) {
 	
@@ -23,18 +20,19 @@ $.ajax({
 	success : function(data) {
 		
 		for(var i = 0; i < data.length; i++) {
-			var date = data[i].date;
-			var dayDate = new Date(date).getDay();
-			var datDateFormat = new Date(date);
-			var dateCorrectFormat = new Date(date).toLocaleDateString();
+			var onlyDate = data[i].date;
+			var fullDate = new Date(onlyDate);
+			var dayFromDate = new Date(onlyDate).getDay();
+			var dateLocalFormat = new Date(onlyDate).toLocaleDateString();
 			var time = data[i].timeFrom;
-			var appointmentDate = new Date(dateCorrectFormat + " " + time);
-			var appointmentDateWithRoundMinutes = roundMinutes(appointmentDate);
+			var appointmentDate = new Date(dateLocalFormat + " " + time);
 			
+			var appointmentDateWithRoundMinutes = roundMinutes(appointmentDate);
 			var getCurretHourFromDate = appointmentDateWithRoundMinutes.getHours();
+			
 			var dateHours = appointmentDate.toLocaleString('en-US', { hour: 'numeric', hour12: true });
 			
-			var currentTD = "td[hour='" + getCurretHourFromDate + "'][date='" + dateCorrectFormat + "']";
+			var currentTD = "td[hour='" + getCurretHourFromDate + "'][date='" + dateLocalFormat + "']";
 			
 			// This is dummy text because there is no appointment type on the form
 			var dummyText = "Appointment";
@@ -42,9 +40,9 @@ $.ajax({
 		$(currentTD)
 			.html("<div class='btn center-block displayingAppointmentForNotActiveDay' id='displayingAppointment'><span>" + dateHours + "</span><br/><span>" + dummyText + "</span></div>");
 		
-		if (isWeekendDay(dayDate)) {
+		if (isWeekendDay(dayFromDate)) {
 			$("#displayingAppointment").empty();
-		} else if (isCurrentDate(datDateFormat)) {
+		} else if (isCurrentDate(fullDate)) {
 			$("#displayingAppointment").removeClass("displayingAppointmentForNotActiveDay");
 			$("#displayingAppointment").addClass("displayingAppointmentForActiveDay");
 		}
@@ -52,7 +50,7 @@ $.ajax({
 	
 	},
 	error : function() {
-		alert("errorere");
+		alert("error");
 	}
 	
 });
@@ -133,7 +131,6 @@ function tableTimeHead(weekDays) {
 	var days = [ 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' ];
 	var $dateHead = $("<tr>", {});
 	
-	
 	$("#appointmentTable").append($dateHead);
 	
 	var $td = $("<td>", {});
@@ -153,8 +150,6 @@ function tableTimeHead(weekDays) {
 			$($td).addClass("activeDay");
 			$($td).attr("id", "activeDay");
 		}
-
-		
 	}
 }
 
@@ -174,7 +169,6 @@ function getCurrentMonthYear(date) {
 	var monthNames = ["January", "February", "March", "April", "May", "June",
 		  "July", "August", "September", "October", "November", "December"
 		];
-	
 	return monthNames[date.getMonth()];
 }
 
@@ -205,8 +199,6 @@ $("#btnForNextWeek").click(function() {
 	toDate = lastDayInWeek(todayDate);
 	
 	getRangeDate(fromDate, toDate);
-	
-	
 });
 
 function addOrRemoveClass(weekDays) {
@@ -227,10 +219,8 @@ function addOrRemoveClass(weekDays) {
 }
 
 function roundMinutes(date) {
-
     date.setHours(date.getHours() + Math.round(date.getMinutes()/60));
     date.setMinutes(0);
-
     return date;
 }
 

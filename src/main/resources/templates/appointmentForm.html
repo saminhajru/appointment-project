@@ -3,7 +3,7 @@
 <head>
 <meta charset="ISO-8859-1" />
 <!-- <meta th:content="${_csrf.token}" id="token_csrf" /> -->
-<title>Insert title here</title>
+<title>Appointment</title>
 
 <link th:href="@{css/bootstrap-select.min.css}" rel="stylesheet"
 	type="text/css" />
@@ -15,9 +15,11 @@
 	type="text/css" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link th:href="@{css/bootstrap-clockpicker.min.css}" rel="stylesheet" type="text/css" />
+<link th:href="@{css/bootstrap-clockpicker.min.css}" rel="stylesheet"
+	type="text/css" />
 
-<link th:href="@{css/checkboxStyle.css}" rel="stylesheet" type="text/css" />
+<link th:href="@{css/checkboxStyle.css}" rel="stylesheet"
+	type="text/css" />
 
 <script type="text/javascript" th:src="@{js/jquery-3.2.1.min.js}">
 	
@@ -49,39 +51,35 @@
 	<div class="container">
 
 		<div class="header"></div>
-		
-		<div class="row formHead">
 
-		<h3 class="col-xs-offset-1 col-xs-5">Create New Appointment</h3>
-		<button class="btn col-xs-offset-5 col-xs-1 exitBtn" id="exitBtn"> <i class="glyphicon glyphicon-remove"> </i> </button>
-		
+		<div class="row formHead">
+			<h3 class="col-md-offset-1 col-md-5">Create New Appointment</h3>
+			<button class="btn col-md-offset-5 col-md-1 exitBtn" id="exitBtn">
+				<i class="glyphicon glyphicon-remove"> </i>
+			</button>
 		</div>
 
 		<div class="col-md-offset-2 col-md-10">
 
 			<form class="form-horizontal" id="appointmentForm">
-			
-			
 
-
-					<div class="form-group has-feedback date">
-						<label class="col-md-2 control-label" for="date"> Date: </label>
-						<div class="col-md-3">
-							<input type="text" class="form-control" id="date" />	
-							<i class="fa fa-calendar form-control-feedback"></i>
-						</div>
+				<div class="form-group has-feedback date">
+					<label class="col-md-2 control-label" for="date"> Date: </label>
+					<div class="col-md-3">
+						<input type="text" class="form-control" id="date" /> <i
+							class="fa fa-calendar form-control-feedback"></i>
 					</div>
-
-
+				</div>
 
 				<div class="form-group has-feedback time">
-					<label class="col-md-2 control-label" for="fromTime"> Time: </label>
+					<label class="col-md-2 control-label" for="fromTime"> Time:
+					</label>
 					<div class="col-md-2">
 						<input class="form-control clockpicker " type="text" id="fromTime" />
 						<i class="glyphicon glyphicon-menu-down form-control-feedback"></i>
 					</div>
-					<label class="control-label col-md-1 toLabel" for="toTime"> To:
-					</label>
+					<label class="control-label col-md-1 toLabel" for="toTime">
+						To: </label>
 					<div class="col-md-2">
 						<input class="form-control clockpicker" type="text" id="toTime" />
 						<i class="glyphicon glyphicon-menu-down form-control-feedback"></i>
@@ -95,12 +93,10 @@
 						<input class="form-control" type="text" id="patientName" />
 					</div>
 					<div class="col-md-2 checkbox checkbox-primary">
-						<input type="checkbox" checked="checked"  id="checkbox" /> 
-						<label for="checkbox" >mPatient </label>
+						<input type="checkbox" checked="checked" id="checkbox" /> <label
+							for="checkbox">mPatient </label>
 					</div>
-					
 				</div>
-				
 
 				<div class="form-group email">
 					<label class="col-md-2 control-label" for="email"> Email: </label>
@@ -117,10 +113,10 @@
 				</div>
 
 				<div class="form-group organisation">
-					<label class="col-md-2 control-label" for="organisation">
+					<label class="col-md-2 control-label" for="organization">
 						Organization: </label>
 					<div class="col-md-3">
-						<select class="form-control selectpicker" id="organisation">
+						<select class="form-control selectpicker" id="organization">
 							<option> ORG 1 </option>
 							<option> ORG 2 </option>
 							<option> ORG 3 </option>
@@ -133,10 +129,10 @@
 						Notes/Comments: </label>
 					<div class="col-md-6">
 						<textarea class="form-control" id="notesComments" rows="3">
-    </textarea>
+   						 </textarea>
 					</div>
 				</div>
-			
+
 				<div class="form-group remindsme">
 					<label class="col-md-2 control-label" for="remindsme">
 						Reminds me: </label>
@@ -146,28 +142,22 @@
 							<option> 20 minutes before</option>
 							<option> 1 hour before </option>
 						</select>
-					</div>				
+					</div>
 				</div>
 
 				<div class="form-group buttons">
-				
 					<button class="col-md-2 btn btn-default buttonForAttachingFiles"
 						id="buttonForAttachingFiles">Attach File</button>
-
-					<button class="col-md-offset-3 col-md-1 btn btn-default buttonForCancel"
+					<button
+						class="col-md-offset-3 col-md-1 btn btn-default buttonForCancel"
 						id="buttonForCancel">Cancel</button>
-
 					<button class="col-md-2 btn btn-primary buttonForCreating"
 						id="buttonForCreating">Create</button>
-
 				</div>
 
-
 			</form>
-
+			
 		</div>
-
 	</div>
-
 </body>
 </html>

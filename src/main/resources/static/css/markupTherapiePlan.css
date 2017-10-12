@@ -97,11 +97,6 @@ table {
 	margin-top: 4%;
 }
 
-.btn-responsive {
-	white-space: normal !important;
-	word-wrap: break-word;
-}
-
 .notFocus:focus {
 	outline: none;
 }

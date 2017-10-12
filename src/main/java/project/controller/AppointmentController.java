@@ -82,11 +82,11 @@ public class AppointmentController {
 		String patientName = appointmentData.get("patientName").trim();
 		String email = appointmentData.get("email").trim();
 		String phone = appointmentData.get("phone").trim();
-		String organisation = appointmentData.get("organisation");
+		String organization = appointmentData.get("organization");
 		String notesComments = appointmentData.get("notesComments").trim();
 		String remindsme = appointmentData.get("remindsme");
 
-		Appointment app = new Appointment(date, timeFrom, timeTo, patientName, email, phone, organisation,
+		Appointment app = new Appointment(date, timeFrom, timeTo, patientName, email, phone, organization,
 				notesComments, remindsme);
 		appointmentService.saveAppointment(app);
 
