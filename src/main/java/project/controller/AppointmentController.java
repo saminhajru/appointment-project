@@ -26,11 +26,6 @@ public class AppointmentController {
 	DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
 	DateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String homePage() {
-		return "home";
-	}
-
 	@RequestMapping(value = "/appointmentForm", method = RequestMethod.GET)
 	public String appointmentFormPage() {
 		return "appointmentForm";
@@ -42,23 +37,15 @@ public class AppointmentController {
 	}
 
 	@RequestMapping(value = "/therapiePlanDateRange", method = RequestMethod.POST, consumes = "application/json")
-	public @ResponseBody List<Appointment> therapiePlanPage(@RequestBody HashMap<String, String> dateRangeProp)
+	public @ResponseBody List<Appointment> therapiePlanPage(@RequestBody HashMap<String, String> dateRangeProperties)
 			throws ParseException {
 
-		String fromDateString = dateRangeProp.get("fromDate");
-		String toDateString = dateRangeProp.get("toDate");
+		String fromDateString = dateRangeProperties.get("fromDate");
+		String toDateString = dateRangeProperties.get("toDate");
 		Date fromDate = dateFormat.parse(fromDateString);
 		Date toDate = dateFormat.parse(toDateString);
 
-		List<Appointment> appointmentsForCurrentWeek = appointmentService.findByDateBetween(fromDate, toDate);
-		System.out.println(appointmentsForCurrentWeek);
-
-		return appointmentsForCurrentWeek;
-	}
-
-	@RequestMapping(value = "/tableHead", method = RequestMethod.GET)
-	public String tableHeadPage() {
-		return "tableHead";
+		return appointmentService.findByDateBetween(fromDate, toDate);
 	}
 
 	@RequestMapping(value = "/appoinmentData", method = RequestMethod.POST, consumes = "application/json")
@@ -86,9 +73,9 @@ public class AppointmentController {
 		String notesComments = appointmentData.get("notesComments").trim();
 		String remindsme = appointmentData.get("remindsme");
 
-		Appointment app = new Appointment(date, timeFrom, timeTo, patientName, email, phone, organization,
+		Appointment appointment = new Appointment(date, timeFrom, timeTo, patientName, email, phone, organization,
 				notesComments, remindsme);
-		appointmentService.saveAppointment(app);
+		appointmentService.saveAppointment(appointment);
 
 		return "appointmentForm";
 	}
