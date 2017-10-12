@@ -161,11 +161,11 @@ function tableHead(date) {
 	
 	var monthName = getCurrentMonthYear(date);
 	var yearName = date.getFullYear();
-	var weekInMonthNumber = date.getMonthWeek();
+	var weekInMonthNumber = "0" + date.getMonthWeek().toString();
 	
 	$("#monthInYear").html(monthName);
 	$("#year").html(yearName);
-	$("#weekInMonth").html(weekInMonthNumber - 1);
+	$("#weekInMonth").html(weekInMonthNumber);
 	
 }
 
