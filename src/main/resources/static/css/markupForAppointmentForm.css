@@ -19,7 +19,8 @@
 }
 
 .header {
-	height: 20px;
+	margin-top: 1%;
+	height: 13px;
 	background-color: #f4a742;
 	border: 2px #f4a742 solid;
 	border-top-left-radius:2em; 
@@ -65,6 +66,18 @@
 	margin-right: 2%;
 }
 
+.time {
+	margin-bottom: 3%;
+}
+
 textarea {
    resize: none;
+}
+
+.phone {
+	margin-bottom: 3%;
+}
+
+.emailInput {
+	color: blue; 
 }
