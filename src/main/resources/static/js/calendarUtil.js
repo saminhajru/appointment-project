@@ -11,11 +11,9 @@ function getDaysInCurrentWeek(today) {
 		var currentDate = new Date(today);
 		currentDate.setDate(currentDate.getDate() + i);
 		week[i] = currentDate;
-
 	}
 
 	return week;
-
 };
 
 function getDaysInNextWeek(date) {
@@ -24,8 +22,7 @@ function getDaysInNextWeek(date) {
 	lastDayInCurrentWeek.setDate(lastDayInCurrentWeek.getDate() + 1);
 	var firstDayInNextWeek = new Date(lastDayInCurrentWeek);
 	
-	return getDaysInCurrentWeek(firstDayInNextWeek);
-		
+	return getDaysInCurrentWeek(firstDayInNextWeek);	
 }
 
 function getDaysInPreviousWeek(date) {
@@ -35,5 +32,4 @@ function getDaysInPreviousWeek(date) {
 	var firstDayInPreviousWeek = new Date(firstDayInCurrentWeek);
 
 	return getDaysInCurrentWeek(firstDayInPreviousWeek);
-
 }

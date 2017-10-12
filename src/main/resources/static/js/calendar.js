@@ -37,22 +37,21 @@ $.ajax({
 			// This is dummy text because there is no appointment type on the form
 			var dummyText = "Appointment";
 				
-		$(currentTD)
-			.html("<div class='btn center-block displayingAppointmentForNotActiveDay' id='displayingAppointment'><span>" + dateHours + "</span><br/><span>" + dummyText + "</span></div>");
+			$(currentTD)
+				.html("<div class='btn center-block displayingAppointmentForNotActiveDay' id='displayingAppointment'><span>" + dateHours + "</span><br/><span>" + dummyText + "</span></div>");
 		
-		if (isWeekendDay(dayFromDate)) {
-			$("#displayingAppointment").empty();
-		} else if (isCurrentDate(fullDate)) {
-			$("#displayingAppointment").removeClass("displayingAppointmentForNotActiveDay");
-			$("#displayingAppointment").addClass("displayingAppointmentForActiveDay");
+			if (isWeekendDay(dayFromDate)) {
+				$("#displayingAppointment").empty();
+			} else if (isCurrentDate(fullDate)) {
+				$("#displayingAppointment")
+					.removeClass("displayingAppointmentForNotActiveDay")
+					.addClass("displayingAppointmentForActiveDay");
+			}
 		}
-		}
-	
 	},
 	error : function() {
 		alert("error");
 	}
-	
 });
 }
 	
@@ -74,8 +73,9 @@ function createCalendar(weekDays) {
 				"hour" : hour
 			});
 			$($tr).append($currentHour);
-			$($currentHour).html("<p>" + hour + "</p>");
-			$($currentHour).addClass("currentHour");
+			$($currentHour)
+				.html("<p>" + hour + "</p>")
+				.addClass("currentHour");
 
 			for (var day = 0; day < weekDays.length; day++) {
 				var $td = $("<td>", {
@@ -85,12 +85,14 @@ function createCalendar(weekDays) {
 				$($td).addClass("tableTdStyle");
 				
 				if (isWeekendDay(weekDays[day].getDay())) {
-					$($td).addClass("weekend");
-					$($td).addClass("pattern");
-					$($td).attr("id", "stripes12");
+					$($td)
+						.addClass("weekend")
+						.addClass("pattern")
+						.attr("id", "stripes12");
 				} else if (isCurrentDay(weekDays[day].getDay(), today)) {
-					$($td).addClass("activeDay");
-					$($td).attr("id", "activeDay");
+					$($td)
+						.addClass("activeDay")
+						.attr("id", "activeDay");
 				}
 
 				$($tr).append($td);
@@ -143,12 +145,14 @@ function tableTimeHead(weekDays) {
 		});
 
 		$($dateHead).append($td);
-		$($td).html("<div> " + days[day] + " " + "<span class='circleNumber'>" + $($td).attr("date") + "</span>" + "</div>");
-		$($td).addClass("dateTimeHead");
+		$($td)
+			.html("<div> " + days[day] + " " + "<span class='circleNumber'>" + $($td).attr("date") + "</span>" + "</div>")
+			.addClass("dateTimeHead");
 		
 		if (isCurrentDay(weekDays[day].getDay(), today)) {
-			$($td).addClass("activeDay");
-			$($td).attr("id", "activeDay");
+			$($td)
+				.addClass("activeDay")
+				.attr("id", "activeDay");
 		}
 	}
 }
